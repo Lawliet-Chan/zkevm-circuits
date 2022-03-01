@@ -21,7 +21,7 @@ mod add;
 mod begin_tx;
 mod bitwise;
 mod byte;
-mod calldatacopy;
+// mod calldatacopy;
 mod calldatasize;
 mod caller;
 mod callvalue;
@@ -51,7 +51,7 @@ use add::AddGadget;
 use begin_tx::BeginTxGadget;
 use bitwise::BitwiseGadget;
 use byte::ByteGadget;
-use calldatacopy::CallDataCopyGadget;
+// use calldatacopy::CallDataCopyGadget;
 use calldatasize::CallDataSizeGadget;
 use caller::CallerGadget;
 use callvalue::CallValueGadget;
@@ -106,7 +106,7 @@ pub(crate) struct ExecutionConfig<F> {
     bitwise_gadget: BitwiseGadget<F>,
     begin_tx_gadget: BeginTxGadget<F>,
     byte_gadget: ByteGadget<F>,
-    calldatacopy_gadget: CallDataCopyGadget<F>,
+    //calldatacopy_gadget: CallDataCopyGadget<F>,
     calldatasize_gadget: CallDataSizeGadget<F>,
     caller_gadget: CallerGadget<F>,
     call_value_gadget: CallValueGadget<F>,
@@ -240,7 +240,7 @@ impl<F: Field> ExecutionConfig<F> {
             bitwise_gadget: configure_gadget!(),
             begin_tx_gadget: configure_gadget!(),
             byte_gadget: configure_gadget!(),
-            calldatacopy_gadget: configure_gadget!(),
+            //calldatacopy_gadget: configure_gadget!(),
             calldatasize_gadget: configure_gadget!(),
             caller_gadget: configure_gadget!(),
             call_value_gadget: configure_gadget!(),
@@ -519,9 +519,9 @@ impl<F: Field> ExecutionConfig<F> {
                 assign_exec_step!(self.timestamp_gadget)
             }
             ExecutionState::SELFBALANCE => assign_exec_step!(self.selfbalance_gadget),
-            ExecutionState::CALLDATACOPY => {
-                assign_exec_step!(self.calldatacopy_gadget)
-            }
+            // ExecutionState::CALLDATACOPY => {
+            //     assign_exec_step!(self.calldatacopy_gadget)
+            // }
             ExecutionState::CopyToMemory => {
                 assign_exec_step!(self.copy_to_memory_gadget)
             }

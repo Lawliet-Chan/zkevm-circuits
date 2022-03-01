@@ -908,6 +908,7 @@ impl From<&operation::OperationContainer> for RwMap {
                         CallContextField::StateWriteCounter => {
                             CallContextFieldTag::StateWriteCounter
                         }
+                        _ => unimplemented!(),
                     },
                     value: op.op().value,
                 })
